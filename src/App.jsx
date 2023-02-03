@@ -18,6 +18,7 @@ function App() {
       <TodoSearch />
       <TodoList>
         {todos.map(todo => (
+          /* A unique key is added to identify the components within a list */
           <TodoItem key={todo.text} text={todo.text} />
         ))}
       </TodoList>
