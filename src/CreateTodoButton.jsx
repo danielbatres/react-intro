@@ -1,10 +1,16 @@
-import React from 'react';
-import './CreateTodoButton.css';
+import React from "react";
+import "./CreateTodoButton.css";
 
 const CreateTodoButton = () => {
-    return (
-        <button className='CreateTodoButton'>+</button>
-    );
-}
+  const onClikButton = () => {
+    alert("Here the modal should be shown");
+  };
+
+  return (
+    <button className="CreateTodoButton" onClick={onClikButton}>
+      +
+    </button>
+  );
+};
 
 export { CreateTodoButton };
