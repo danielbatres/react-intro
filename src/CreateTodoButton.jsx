@@ -7,6 +7,7 @@ const CreateTodoButton = () => {
   };
 
   return (
+    /* The function is sent without parentheses to show that it is not executed but it is the function that will be used */
     <button className="CreateTodoButton" onClick={onClikButton}>
       +
     </button>
