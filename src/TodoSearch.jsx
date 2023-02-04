@@ -34,7 +34,7 @@ const TodoSearch = ({ searchValue, setSearchValue }) => {
     <input
       className="TodoSearch"
       placeholder="Onion"
-      value="searchValue"
+      value={searchValue}
       onChange={onSearchValueChange}
     />
   );
