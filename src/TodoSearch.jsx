@@ -21,14 +21,11 @@ const TodoSearch = ({ searchValue, setSearchValue }) => {
   };
 
   return (
-    <>
-      <input
-        className="TodoSearch"
-        placeholder="Onion"
-        onChange={onSearchValueChange}
-      />
-      <p>{searchValue}</p>
-    </>
+    <input
+      className="TodoSearch"
+      placeholder="Onion"
+      onChange={onSearchValueChange}
+    />
   );
 };
 
