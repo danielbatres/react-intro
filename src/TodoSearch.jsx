@@ -20,10 +20,21 @@ const TodoSearch = ({ searchValue, setSearchValue }) => {
     setSearchValue(event.target.value);
   };
 
+  /**
+   * "The only source of the truth" - controlled components
+   *
+   * React components that render a form also control what happens to that
+   * form with subsequent user input.
+   *
+   * value={state}
+   *
+   * Read more about this is "https://en.reactjs.org/docs/forms.html"
+   */
   return (
     <input
       className="TodoSearch"
       placeholder="Onion"
+      value="searchValue"
       onChange={onSearchValueChange}
     />
   );
