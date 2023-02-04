@@ -12,6 +12,13 @@ const defaultTodos = [
 ];
 
 function App() {
+  /**
+   * We use useState in the parent component of the application
+   * to be able to send the state to all the child components.
+   *
+   * On the other hand, we are going to cause the components
+   * to be affected with a re-rendering.
+   */
   const [todos, setTodos] = React.useState(defaultTodos);
   const [searchValue, setSearchValue] = React.useState('');
 
