@@ -28,7 +28,7 @@ const TodoSearch = ({ searchValue, setSearchValue }) => {
    *
    * value={state}
    *
-   * Read more about this is "https://en.reactjs.org/docs/forms.html"
+   * Read more about this in "https://en.reactjs.org/docs/forms.html"
    */
   return (
     <input
