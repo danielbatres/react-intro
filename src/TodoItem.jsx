@@ -1,27 +1,19 @@
 import React from "react";
 import "./TodoItem.css";
 
-const TodoItem = (props) => {
-  const onComplete = () => {
-    alert("You already completed the TODO " + props.text);
-  };
-
-  const onDelete = () => {
-    alert("You deleted the TODO " + props.text);
-  };
-
+const TodoItem = props => {
   return (
     <li className="TodoItem">
       <span
         className={`Icon Icon-check ${props.completed && "Icon-check--active"}`}
-        onClick={onComplete}
+        onClick={props.onComplete}
       >
         √
       </span>
       <p className={`TodoItem-p ${props.completed && "TodoItem-p--complete"}`}>
         {props.text}
       </p>
-      <span className="Icon Icon-delete" onClick={onDelete}>
+      <span className="Icon Icon-delete" onClick={props.onDelete}>
         X
       </span>
     </li>
