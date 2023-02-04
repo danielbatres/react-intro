@@ -54,6 +54,14 @@ function App() {
     setTodos(newTodos);
   };
 
+  /**
+   * It is important to mention the ASI (automatic semicolon insertion).
+   *
+   * When we use JSX and we have several lines of code we must enclose it
+   * in parentheses to avoid problems with the ASI.
+   *
+   * Read more here "https://stackoverflow.com/questions/2846283/what-are-the-rules-for-javascripts-automatic-semicolon-insertion-asi"
+   */
   return (
     <>
       <TodoCounter 
