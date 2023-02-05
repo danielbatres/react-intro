@@ -1,5 +1,5 @@
 import React from "react";
-import "./TodoSearch.css";
+import "../styles/TodoSearch.css";
 
 /**
  * We destructure the props object to receive only
@@ -11,7 +11,7 @@ const TodoSearch = ({ searchValue, setSearchValue }) => {
    * The state variable and the function to change that state.
    * The initial state is received as an argument.
    *
-   * Every time the state changes the component is rendered again.
+   * Every time the state changes the component is rendered again. 
    *
    * const [searchValue, setSearchValue] = React.useState('');
    */
