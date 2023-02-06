@@ -83,7 +83,11 @@ function App() {
    */
   React.useEffect(() => {
     console.log('useEffect');
-  });
+    /**
+     * When we pass an empty array as the second parameter useEffect will only be
+     * executed once.
+     */
+    }, []);
 
   console.log('after useEffect');
 
