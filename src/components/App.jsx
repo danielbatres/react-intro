@@ -8,20 +8,26 @@ import { AppUI } from './AppUI';
 //];
 
 function useLocalStorage(itemName, initialValue) {
-  const localStorageItem = localStorage.getItem(itemName);
-  let parsedItem;
-
-  if (!localStorageItem) {
-    localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedItem = [];
-  } else {
-    parsedItem = JSON.parse(localStorageItem);
-  }
-
   /**
-   * Within the custom hooks we can call the official React hooks
-   */
-  const [item, setItem] = React.useState(parsedItem);
+  * Within the custom hooks we can call the official React hooks
+  */
+  const [item, setItem] = React.useState(initialValue);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      const localStorageItem = localStorage.getItem(itemName);
+      let parsedItem;
+
+      if (!localStorageItem) {
+        localStorage.setItem(itemName, JSON.stringify(initialValue));
+        parsedItem = [];
+      } else {
+        parsedItem = JSON.parse(localStorageItem);
+      }
+
+      setItem(parsedItem);
+    }, 1000);
+  });
   
   const saveItem = newItem => {
     const stringifiedItem = JSON.stringify(newItem);
