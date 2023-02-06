@@ -18,6 +18,9 @@ function useLocalStorage(itemName) {
     parsedItem = JSON.parse(localStorageItem);
   }
 
+  /**
+   * Within the custom hooks we can call the official React hooks
+   */
   const [item, setItem] = React.useState(parsedItem);
   
   const saveItem = newItem => {
