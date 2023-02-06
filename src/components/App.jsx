@@ -8,22 +8,22 @@ import { AppUI } from './AppUI';
 //];
 
 function useLocalStorage(itemName) {
-  const localStorageTodos = localStorage.getItem(itemName);
-  let parsedTodos;
+  const localStorageItem = localStorage.getItem(itemName);
+  let parsedItem;
 
-  if (!localStorageTodos) {
+  if (!localStorageItem) {
     localStorage.setItem(itemName, JSON.stringify([]));
-    parsedTodos = [];
+    parsedItem = [];
   } else {
-    parsedTodos = JSON.parse(localStorageTodos);
+    parsedItem = JSON.parse(localStorageItem);
   }
 
-  const [todos, setTodos] = React.useState(parsedTodos);
+  const [item, setItem] = React.useState(parsedItem);
   
-  const saveTodos = newTodos => {
-    const stringifiedTodos = JSON.stringify(newTodos);
-    localStorage.setItem('TODOS_V1', stringifiedTodos);
-    setTodos(newTodos);
+  const saveItem = newItem => {
+    const stringifiedItem = JSON.stringify(newItem);
+    localStorage.setItem(itemName, stringifiedItem);
+    setItem(newItem);
   }
 }
 
@@ -36,6 +36,7 @@ function App() {
    * to be affected with a re-rendering.
    */
   const [searchValue, setSearchValue] = React.useState('');
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1');
 
   const completedTodos = todos.filter(todo => todo.completed).length;
   const totalTodos = todos.length;
