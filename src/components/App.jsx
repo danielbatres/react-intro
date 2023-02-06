@@ -7,6 +7,10 @@ import { AppUI } from './AppUI';
 //  { text: "Do homework", completed: true }
 //];
 
+function useLocalStorage(itemName) {
+  
+}
+
 function App() {
   const localStorageTodos = localStorage.getItem('TODOS_V1');
   let parsedTodos;
