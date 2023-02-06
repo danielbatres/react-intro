@@ -27,6 +27,10 @@ function AppUI({
         setSearchValue={setSearchValue}
       />
       <TodoList>
+        {error && <p>An error has ocurred...</p>}
+        {loading && <p>Loading, please wait...</p>}
+        {(!loading && !searchedTodos.length) && <p>¡¡Create your first TODO!!</p>}
+
         {searchedTodos.map(todo => (
                 /* A unique key is added to identify the components within a list */
               <TodoItem
