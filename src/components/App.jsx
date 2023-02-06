@@ -75,6 +75,18 @@ function App() {
     saveTodos(newTodos);
   };
 
+  console.log('before useEffect');
+
+  /**
+   * It is called "useEffect" or secondary effect because we are telling React that
+   * the component has to do something after rendering.
+   */
+  React.useEffect(() => {
+    console.log('useEffect');
+  });
+
+  console.log('after useEffect');
+
   /**
    * It is important to mention the ASI (automatic semicolon insertion).
    *
