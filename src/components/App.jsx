@@ -8,20 +8,26 @@ import { AppUI } from './AppUI';
 //];
 
 function useLocalStorage(itemName) {
-  
-}
-
-function App() {
-  const localStorageTodos = localStorage.getItem('TODOS_V1');
+  const localStorageTodos = localStorage.getItem(itemName);
   let parsedTodos;
 
   if (!localStorageTodos) {
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
+    localStorage.setItem(itemName, JSON.stringify([]));
     parsedTodos = [];
   } else {
     parsedTodos = JSON.parse(localStorageTodos);
   }
 
+  const [todos, setTodos] = React.useState(parsedTodos);
+  
+  const saveTodos = newTodos => {
+    const stringifiedTodos = JSON.stringify(newTodos);
+    localStorage.setItem('TODOS_V1', stringifiedTodos);
+    setTodos(newTodos);
+  }
+}
+
+function App() {
   /**
    * We use useState in the parent component of the application
    * to be able to send the state to all the child components.
@@ -29,7 +35,6 @@ function App() {
    * On the other hand, we are going to cause the components
    * to be affected with a re-rendering.
    */
-  const [todos, setTodos] = React.useState(parsedTodos);
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTodos = todos.filter(todo => todo.completed).length;
@@ -46,12 +51,6 @@ function App() {
 
       return todoText.includes(searchText);
     })
-  }
-
-  const saveTodos = newTodos => {
-    const stringifiedTodos = JSON.stringify(newTodos);
-    localStorage.setItem('TODOS_V1', stringifiedTodos);
-    setTodos(newTodos);
   }
 
   const completeTodo = text => {
