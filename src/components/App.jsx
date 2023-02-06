@@ -28,6 +28,8 @@ function useLocalStorage(itemName, initialValue) {
     localStorage.setItem(itemName, stringifiedItem);
     setItem(newItem);
   }
+  
+  return [item, saveItem];
 }
 
 function App() {
