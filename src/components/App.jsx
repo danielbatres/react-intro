@@ -7,12 +7,12 @@ import { AppUI } from './AppUI';
 //  { text: "Do homework", completed: true }
 //];
 
-function useLocalStorage(itemName) {
+function useLocalStorage(itemName, initialValue) {
   const localStorageItem = localStorage.getItem(itemName);
   let parsedItem;
 
   if (!localStorageItem) {
-    localStorage.setItem(itemName, JSON.stringify([]));
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
     parsedItem = [];
   } else {
     parsedItem = JSON.parse(localStorageItem);
@@ -39,7 +39,7 @@ function App() {
    * to be affected with a re-rendering.
    */
   const [searchValue, setSearchValue] = React.useState('');
-  const [todos, saveTodos] = useLocalStorage('TODOS_V1');
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
 
   const completedTodos = todos.filter(todo => todo.completed).length;
   const totalTodos = todos.length;
