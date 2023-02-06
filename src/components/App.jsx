@@ -37,19 +37,27 @@ function useLocalStorage(itemName, initialValue) {
     setItem(newItem);
   }
 
+  /**
+   * When a custom hook returns several values it is recommended to use an object
+   * for it's return.
+   */
   return { item, saveItem, loading };
 }
 
 function App() {
   /**
-   * We use useState in the parent component of the application
-   * to be able to send the state to all the child components.
-   *
-   * On the other hand, we are going to cause the components
-   * to be affected with a re-rendering.
-   */
+  * We use useState in the parent component of the application
+  * to be able to send the state to all the child components.
+  *
+  * On the other hand, we are going to cause the components
+  * to be affected with a re-rendering.
+  */
   const [searchValue, setSearchValue] = React.useState('');
-  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading
+  } = useLocalStorage('TODOS_V1', []);
 
   const completedTodos = todos.filter(todo => todo.completed).length;
   const totalTodos = todos.length;
