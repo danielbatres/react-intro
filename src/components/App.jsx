@@ -75,26 +75,28 @@ function App() {
     saveTodos(newTodos);
   };
 
-  console.log('before useEffect');
-
   /**
+   * console.log('before useEffect');
+   *
+   *
    * It is called "useEffect" or secondary effect because we are telling React that
    * the component has to do something after rendering.
+   *
+   * React.useEffect(() => {
+   *   console.log('useEffect');
+   *
+   * When we pass an empty array as the second parameter useEffect will only be
+   * executed once.
+   *
+   * }, []);
+   *
+   * We send an element to the array that will indicate when it has to be
+   * executed.
+   *
+   * }, [totalTodos]);
+   *
+   * console.log('after useEffect');
    */
-  React.useEffect(() => {
-    console.log('useEffect');
-    /**
-     * When we pass an empty array as the second parameter useEffect will only be
-     * executed once.
-     *
-     * }, []);
-     *
-     * We send an element to the array that will indicate when it has to be
-     * executed.
-     */
-  }, [totalTodos]);
-
-  console.log('after useEffect');
 
   /**
    * It is important to mention the ASI (automatic semicolon insertion).
