@@ -11,6 +11,7 @@ function useLocalStorage(itemName, initialValue) {
   /**
   * Within the custom hooks we can call the official React hooks
   */
+  const [loading, setLoading] = React.useState(true);
   const [item, setItem] = React.useState(initialValue);
 
   React.useEffect(() => {
@@ -26,16 +27,17 @@ function useLocalStorage(itemName, initialValue) {
       }
 
       setItem(parsedItem);
-    }, 1000);
+      setLoading(false);
+      }, 1000);
   });
-  
+
   const saveItem = newItem => {
     const stringifiedItem = JSON.stringify(newItem);
     localStorage.setItem(itemName, stringifiedItem);
     setItem(newItem);
   }
-  
-  return [item, saveItem];
+
+  return { item, saveItem, loading };
 }
 
 function App() {
