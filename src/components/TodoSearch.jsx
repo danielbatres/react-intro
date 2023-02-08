@@ -1,11 +1,14 @@
 import React from "react";
 import "../styles/TodoSearch.css";
+import { TodoContext } from "./TodoContext";
 
 /**
  * We destructure the props object to receive only
  * it's properties by parameters
  */
-const TodoSearch = ({ searchValue, setSearchValue }) => {
+const TodoSearch = () => {
+  const { searchValue, setSearchValue } = React.useContext(TodoContext);
+
   /**
    * useState returns a two positions array.
    * The state variable and the function to change that state.
