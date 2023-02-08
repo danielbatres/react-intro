@@ -43,7 +43,7 @@ function AppUI() {
           <p>TELEPORTATION</p>
         </Modal>
       )}
-      <CreateTodoButton />
+      <CreateTodoButton setOpenModal={setOpenModal}/>
     </>
   );
 }
