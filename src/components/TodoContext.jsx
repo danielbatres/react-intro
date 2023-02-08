@@ -58,6 +58,8 @@ function TodoProvider(props) {
       searchedTodos,
       completeTodo,
       deleteTodo,
+      openModal,
+      setOpenModal
     }}>
       {props.children}
     </TodoContext.Provider>
