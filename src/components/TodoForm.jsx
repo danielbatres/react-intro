@@ -2,26 +2,33 @@ import React from 'react';
 import { TodoContext } from "./TodoContext";
 
 const TodoForm = () => {
+  const [newTodoValue, setNewTodoValue] = React.useState('');
+
   const {
-    saveTodo
+    addTodo
   } = React.useContext(TodoContext);
+
+  const onChange = event => {
+    setNewTodoValue(event.target.value);
+  }
 
   const onCancel = () => {
 
   }
-
-  const onAdd = () => {
-
-  }
   
-  const onSubmit = () => {
-    
+  const onSubmit = event => {
+    event.preventDefault();
+    addTodo(newTodoValue);
   }
 
   return (
     <form onSubmit={onSubmit}>
       <label>...</label>
-      <textarea placeholder="Cut onion for lunch"/>
+      <textarea
+        value={newTodoValue}
+        onChange={onChange}
+        placeholder="Cut onion for lunch"
+      />
       <div>
         <button
           type="button"
@@ -29,10 +36,7 @@ const TodoForm = () => {
         >
           Cancel
         </button>
-        <button
-          type="submit"
-          onClick={onAdd}
-          >
+        <button type="submit">
           Add
         </button>
       </div>
