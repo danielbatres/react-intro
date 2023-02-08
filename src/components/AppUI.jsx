@@ -7,6 +7,8 @@ import { TodoItem } from "./TodoItem";
 import { CreateTodoButton } from "./CreateTodoButton";
 
 function AppUI() {
+  const value = React.useContext(TodoContext);
+
   return (
     <>
       <TodoCounter />
