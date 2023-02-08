@@ -36,6 +36,9 @@ function AppUI() {
         />
         ))}
       </TodoList>
+      <Modal>
+        <p>TELEPORTATION</p>
+      </Modal>
       <CreateTodoButton />
     </>
   );
