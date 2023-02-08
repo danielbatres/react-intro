@@ -5,7 +5,8 @@ const TodoForm = () => {
   const [newTodoValue, setNewTodoValue] = React.useState('');
 
   const {
-    addTodo
+    addTodo,
+    setOpenModal
   } = React.useContext(TodoContext);
 
   const onChange = event => {
@@ -13,7 +14,7 @@ const TodoForm = () => {
   }
 
   const onCancel = () => {
-
+    setOpenModal(false);
   }
   
   const onSubmit = event => {
