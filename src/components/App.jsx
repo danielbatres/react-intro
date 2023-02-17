@@ -1,5 +1,4 @@
 import React from 'react';
-import { TodoContext } from "./TodoContext";
 import { TodoCounter } from "./TodoCounter";
 import { TodoSearch } from "./TodoSearch";
 import { TodoList } from "./TodoList";
@@ -8,6 +7,7 @@ import { CreateTodoButton } from "./CreateTodoButton";
 import { Modal } from './Modal';
 import { TodoForm } from "./TodoForm";
 import {TodoHeader} from "./TodoHeader";
+import { useTodos } from "../hooks/useTodos";
 
 function App() {
   const {
@@ -22,7 +22,7 @@ function App() {
     completedTodos,
     searchValue,
     setSearchValue
-  } = React.useContext(TodoContext);
+  } = useTodos();
 
   return (
     <>
