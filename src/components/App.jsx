@@ -21,7 +21,8 @@ function App() {
     totalTodos,
     completedTodos,
     searchValue,
-    setSearchValue
+    setSearchValue,
+    addTodo
   } = useTodos();
 
   return (
@@ -42,7 +43,7 @@ function App() {
       {(!loading && !searchedTodos.length) && <p>¡¡Create your first TODO!!</p>}
 
       {searchedTodos.map(todo => (
-              /* A unique key is added to identify the components within a list */
+      /* A unique key is added to identify the components within a list */
       <TodoItem
         key={todo.text}
         text={todo.text}
@@ -54,7 +55,10 @@ function App() {
     </TodoList>
     {openModal && (
       <Modal>
-        <TodoForm />
+        <TodoForm
+          addTodo={addTodo}
+          setOpenModal={setOpenModal}
+        />
       </Modal>
     )}
     <CreateTodoButton setOpenModal={setOpenModal}/>
