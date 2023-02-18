@@ -38,6 +38,9 @@ export function App(): JSX.Element {
       />
     </TodoHeader>
     <TodoList
+      error={error}
+      loading={loading}
+      searchedTodos={searchedTodos}
       onError={() => <TodoError />}
       onLoading={() => <TodoLoading />}
       onEmptyTodos={() => <EmptyTodos />}
@@ -61,6 +64,7 @@ export function App(): JSX.Element {
     )}
     <CreateTodoButton setOpenModal={setOpenModal}/>
     </TodoList
+
 >
   );
 }
