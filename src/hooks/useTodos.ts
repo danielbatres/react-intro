@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocalStorage } from "./useLocalStorage";
 
-function useTodos() {
+export function useTodos() {
   const [searchValue, setSearchValue] = React.useState('');
   const [openModal, setOpenModal] = React.useState(false);
 
@@ -68,5 +68,3 @@ function useTodos() {
     setOpenModal
   }
 }
-
-export { useTodos };

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '../styles/Modal.css';
 
-function Modal({ children }) {
+export function Modal({ children }): JSX.Element {
   return ReactDOM.createPortal(
     <div className="ModalBackground">
       {children}
@@ -10,5 +10,3 @@ function Modal({ children }) {
     document.getElementById('modal')
   );
 }
-
-export { Modal };

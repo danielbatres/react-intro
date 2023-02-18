@@ -5,7 +5,7 @@ import "../styles/TodoSearch.css";
  * We destructure the props object to receive only
  * it's properties by parameters
  */
-const TodoSearch = ({ searchValue, setSearchValue }) => {
+export const TodoSearch = ({ searchValue, setSearchValue }): JSX.Element => {
   /**
    * useState returns a two positions array.
    * The state variable and the function to change that state.
@@ -39,5 +39,3 @@ const TodoSearch = ({ searchValue, setSearchValue }) => {
     />
   );
 };
-
-export { TodoSearch };

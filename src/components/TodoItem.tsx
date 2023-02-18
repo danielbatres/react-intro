@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/TodoItem.css";
 
-const TodoItem = props => {
+export const TodoItem = (props): JSX.Element => {
   return (
     <li className="TodoItem">
       <span
@@ -19,5 +19,3 @@ const TodoItem = props => {
     </li>
   );
 };
-
-export { TodoItem };

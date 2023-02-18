@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/CreateTodoButton.css";
 
-const CreateTodoButton = ({ setOpenModal }) => {
+export const CreateTodoButton= ({ setOpenModal }): JSX.Element => {
   const onClikButton = () => {
     setOpenModal(prevState => !prevState);
   };
@@ -16,5 +16,3 @@ const CreateTodoButton = ({ setOpenModal }) => {
     </button>
   );
 };
-
-export { CreateTodoButton };

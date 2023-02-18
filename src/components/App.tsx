@@ -9,7 +9,7 @@ import { TodoForm } from "./TodoForm";
 import {TodoHeader} from "./TodoHeader";
 import { useTodos } from "../hooks/useTodos";
 
-function App() {
+export function App(): JSX.Element {
   const {
     error,
     loading,
@@ -65,5 +65,3 @@ function App() {
     </>
   );
 }
-
-export { App };

@@ -1,11 +1,9 @@
 import React from 'react';
 
-const TodoHeader = ({ children }) => {
+export const TodoHeader = ({ children }): JSX.Element => {
   return (
     <header>
       {children}
     </header>
   );
 }
-
-export { TodoHeader };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function useLocalStorage(itemName, initialValue) {
+export function useLocalStorage(itemName, initialValue) {
   /**
   * Within the custom hooks we can call the official React hooks
   */
@@ -50,5 +50,3 @@ function useLocalStorage(itemName, initialValue) {
     error
   };
 }
-
-export { useLocalStorage };
