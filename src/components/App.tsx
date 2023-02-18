@@ -37,22 +37,20 @@ export function App(): JSX.Element {
         setSearchValue={setSearchValue}
       />
     </TodoHeader>
-    <TodoList>
-      {error && <p>An error has ocurred...</p>}
-      {loading && <p>Loading, please wait...</p>}
-      {(!loading && !searchedTodos.length) && <p>¡¡Create your first TODO!!</p>}
-
-      {searchedTodos.map(todo => (
-      /* A unique key is added to identify the components within a list */
-      <TodoItem
-        key={todo.text}
-        text={todo.text}
-        completed={todo.completed}
-        onComplete={() => completeTodo(todo.text)}
-        onDelete={() => deleteTodo(todo.text)}
-      />
-      ))}
-    </TodoList>
+    <TodoList
+      onError={() => <TodoError />}
+      onLoading={() => <TodoLoading />}
+      onEmptyTodos={() => <EmptyTodos />}
+      render={todo => (
+        <TodoItem
+          key={todo.text}
+          text={todo.text}
+          completed={todo.completed}
+          onComplete={() => completeTodo(todo.text)}
+          onDelete={() => deleteTodo(todo.text)}
+        />
+      )}
+    >
     {openModal && (
       <Modal>
         <TodoForm
@@ -62,6 +60,7 @@ export function App(): JSX.Element {
       </Modal>
     )}
     <CreateTodoButton setOpenModal={setOpenModal}/>
-    </>
+    </TodoList
+>
   );
 }
