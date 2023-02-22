@@ -47,6 +47,7 @@ export function App(): JSX.Element {
         onError={() => <TodosError />}
         onLoading={() => <TodosLoading />}
         onEmptyTodos={() => <EmptyTodos />}
+        onEmptySearchResults={() => <EmptySearchResults />}
         render={todo => (
           <TodoItem
             key={todo.text}
